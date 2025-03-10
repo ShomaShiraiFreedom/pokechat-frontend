@@ -12,7 +12,7 @@ export default function SignUp() {
     const [error, setError] = useState('');
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
-    const router = useRouter();
+    const _router = useRouter();
     const { signUp, signInWithGoogle } = useAuth();
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -34,7 +34,7 @@ export default function SignUp() {
             }
 
             setMessage('登録確認メールを送信しました。メールをご確認ください。');
-        } catch (err) {
+        } catch (_err) {
             setError('アカウントの作成に失敗しました');
         } finally {
             setLoading(false);
@@ -47,7 +47,7 @@ export default function SignUp() {
             setLoading(true);
             await signInWithGoogle();
             // リダイレクトはコールバックで処理されるため、ここでは何もしない
-        } catch (err) {
+        } catch (_err) {
             setError('Googleでのアカウント作成に失敗しました');
             setLoading(false);
         }

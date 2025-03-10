@@ -31,7 +31,7 @@ export default function Login() {
             }
 
             router.push('/chat');
-        } catch (err) {
+        } catch (_err) {
             setError('ログインに失敗しました');
         } finally {
             setLoading(false);
@@ -44,7 +44,7 @@ export default function Login() {
             setLoading(true);
             await signInWithGoogle();
             // リダイレクトはコールバックで処理されるため、ここでは何もしない
-        } catch (err) {
+        } catch (_err) {
             setError('Googleログインに失敗しました');
             setLoading(false);
         }
