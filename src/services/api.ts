@@ -10,6 +10,7 @@ interface PokemonResponse {
 // ポケモン情報を取得する関数
 export async function getPokemonInfo(name: string, conversationId?: string): Promise<PokemonResponse> {
     console.log(`API呼び出し: ${API_URL}/pokemon`);
+    console.log(`API_URL: ${API_URL}`);
     try {
         const response = await axios.post(`${API_URL}/pokemon`, {
             query: name,
